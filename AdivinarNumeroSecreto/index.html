@@ -49,14 +49,12 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-            </script>
+        </script>
 
         <script>
 
             const btn = document.querySelector("button");
-
             const dificulty = document.getElementById("dificulty");
-
             const retry = document.getElementById("retry");
             const numUser = document.getElementById("numUser");
             const record = document.getElementById("record");
@@ -66,15 +64,17 @@
             const mode = document.getElementById("mode");
             const message = document.getElementById("message");
 
-            let numRandom;
-            let selectedMode = "";
+            let numRandom; // Variable que almacena el numero aleatorio
+            let selectedMode = ""; // Variable que almacena el nivel de dificultad seleccionado
 
+            // Objeto que almacena los registros de los intentos
             let records = {
                 easy: parseInt(localStorage.getItem("easy")) || 0,
                 normal: parseInt(localStorage.getItem("normal")) || 0,
                 hard: parseInt(localStorage.getItem("hard")) || 0
             }
 
+            // Función que actualiza el record cuando se bate 
             function updateRecord() {
 
                 const initialAttempts = {
@@ -83,6 +83,7 @@
                     hard: 10
                 };
 
+                // Calcula los intentos y los compara con el record actual
                 const attempts = initialAttempts[selectedMode] - parseInt(trysValue.innerText);
                 if (attempts < records[selectedMode] || records[selectedMode] === 0) {
                     records[selectedMode] = attempts;
@@ -91,6 +92,7 @@
                 }
             }
 
+            // Evento que se activa cuando cambia el nivel de dificultad
             dificulty.addEventListener("change", (event) => {
 
                 selectedMode = event.target.value;
@@ -120,22 +122,24 @@
                         break;
                 }
 
+                // Actualiza el valor de record
                 document.getElementById("recordValue").innerText = `${records[selectedMode]}`;
-
 
             })
 
-
+            // Evento que se activa cuando se envía el formulario
             btn.addEventListener("click", (event) => {
                 event.preventDefault();
                 const numTest = document.getElementById("numUser");
 
                 if (mode.innerText !== "") {
 
+                    //Valida el numero introducido
                     if (/^([1-9][0-9]?|100)$/.test(numTest.value)) {
 
                         const number = parseInt(numTest.value, 10)
 
+                        //Compara el numero introducido con el aleatorio
                         if (number < numRandom) {
                             message.innerText = "El numero es mayor que " + number
 
@@ -152,15 +156,13 @@
 
                         }
 
+                        //Comprobacion de intentos restantes
                         if (trysValue.innerText <= 0) {
                             message.innerText = "Has perdido"
 
                             dificulty.selectedIndex = 0
                             trysValue.innerText = 0
                         }
-
-
-
 
                     } else {
                         message.innerText = "Lo que has introducido no es valido"
@@ -173,6 +175,7 @@
 
             });
 
+            // Evento que se activa cuando se presiona el botón de reiniciar
             retry.addEventListener("click", () => {
                 dificulty.selectedIndex = 0;
                 numUser.value = "";
@@ -184,5 +187,4 @@
         </script>
 
 </body>
-
 </html>

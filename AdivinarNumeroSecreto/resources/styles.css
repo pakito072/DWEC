@@ -5,18 +5,7 @@
     background-size: cover;
     background-attachment: fixed;
 }
-.btn-personalizado {
-        background-color: #28a745;
-        border-color: #28a745;
-        color: white;
-    }
 
-.btn-personalizado:hover {
-        background-color: #218838;
-        border-color: #1e7e34;
-}
-
-.btn-primary {
-    background-color: #28a745;
-    border-color:yellow;
+.bg-dark{
+    --bs-bg-opacity: 0.9;
 }

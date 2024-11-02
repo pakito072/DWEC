@@ -13,10 +13,10 @@
 </head>
 
 <body class="background-gr">
-    <div class="container bg-white rounded-4 shadow">
-        <h1 class="text-center">Adivina el numero secreto Mode: <span id="mode"></span></h1>
+    <div class="container bg-dark rounded-4 text-white mt-5 pt-3 pb-4 shadow-lg">
+        <h1 class='text-white text-center'>Adivina el numero secreto Mode: <span id="mode"></span></h1>
 
-        <form class="mb-3">
+        <form class="mb-3 text-center">
             <label for="dificultad" class="form-label">Selecciona el nivel de dificultad</label>
             <select class="form-select" id="dificulty">
                 <option value="" disabled selected>Selecciona una dificultad</option>
@@ -26,7 +26,7 @@
             </select>
         </form>
 
-        <div class="mb-3">
+        <div class="mb-3 text-center">
             <label for="conjetura" class="form-label">Ingresa tu numero</label>
             <input type="text" class="form-control" id="numUser" placeholder="Escribe tu conjetura aquí">
         </div>
@@ -39,7 +39,15 @@
             <h2 id="message">Mensaje: <span id="message"></span></h2>
         </div>
 
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <div class="mt-3">
+            <h2 id="record">Record: <span id="recordValue"></span></h2>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+
+        <button id="retry" class="btn btn-warning mt-3">Reiniciar</button>
+
+       
         
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -56,16 +64,40 @@
         const retry = document.getElementById('retry');
         const numUser = document.getElementById('numUser');
         const record = document.getElementById('record');
+        const recordValue = document.getElementById('recordValue');
         const trys = document.getElementById('trys');
         const trysValue = document.getElementById('trysValue');
         const mode = document.getElementById('mode');
         const message = document.getElementById('message');
 
-        let numRandom 
+        let numRandom;
+        let selectedMode = ''; 
+
+        let records = {
+            easy: parseInt(localStorage.getItem('easy')) || 0,
+            normal: parseInt(localStorage.getItem('normal')) || 0,
+            hard: parseInt(localStorage.getItem('hard')) || 0
+        }
+
+        function updateRecord(){
+
+            const initialAttempts = {
+                easy: 5,
+                normal: 7,
+                hard: 10
+            };
+
+            const attempts = initialAttempts[selectedMode] - parseInt(trysValue.innerText);
+            if (attempts < records[selectedMode]  || records[selectedMode] === 0) {
+                records[selectedMode] = attempts;
+                localStorage.setItem(selectedMode, attempts);
+                document.getElementById('recordValue').innerText = `${attempts} - ¡Nuevo record!`;
+            }
+        }
 
         dificulty.addEventListener('change' , (event)=>{
 
-            const selectedMode = event.target.value;
+            selectedMode = event.target.value;
 
             switch (selectedMode) {
 
@@ -92,14 +124,14 @@
                     break;
             }
 
-
+            document.getElementById('recordValue').innerText = `${records[selectedMode]}`;
 
             
         })
 
 
-        btn.addEventListener('click' , ()=>{
-
+        btn.addEventListener('click' , (event)=>{
+            event.preventDefault();
             const numTest = document.getElementById('numUser');
 
             if (mode.innerText !== '') {
@@ -120,16 +152,16 @@
 
                     }else if (number === numRandom) {
                         message.innerText = number + ' es el numero correcto'
+                        updateRecord();
 
                     }
                     
-                    if (trysValue.innerText == 0) {
+                    if (trysValue.innerText <= 0) {
                         message.innerText = 'Has perdido'
 
                         dificulty.selectedIndex = 0
+                        trysValue.innerText = 0
                     }
-                    console.log(trysValue.innerText == 0);
-                    console.log(trysValue.innerText);
 
 
 
@@ -143,7 +175,16 @@
                 
             }
             
-        })
+        });
+
+        retry.addEventListener('click' , ()=>{
+            dificulty.selectedIndex = 0;
+            numUser.value = '';
+            message.innerText = 'Mensaje: ';
+            mode.innerText = '';
+            trysValue.innerText = '';
+            document.getElementById('recordValue').innerText = '';
+        });
     </script>
 
 </body>

@@ -1,0 +1,45 @@
+class Tarea {
+    constructor(id, description) {
+        this.id = id;
+        this.description = description;
+    }
+
+    getDescription() {
+        return this.description;
+    }
+
+    setDescription(description) {
+        this.description = description;
+    }
+}
+
+class TareaManager {
+    constructor(){
+        this.task = this.loadTask();
+    }
+
+    loadTask(){
+        const taskJSON = Cookies.get('task');
+        return taskJSON ? JSON.parse(taskJSON) : [];
+    }
+
+    saveTask(){
+        Cookies.set('task', JSON.stringify(this.task));
+    }
+
+    addTask(){
+        const id = this.task.lenght ? this.task[this.task.length - 1].id + 1 : 1;
+        const newTask = new Task(id, description);
+        this.task.push(newTask);
+        this.saveTask();
+    }
+
+    updateTask(id, description){
+        const task = this.task.find(task => task.id === id);
+        if(task){
+            task.setDescription(description);
+            this.saveTask();
+        }
+    }
+}
+

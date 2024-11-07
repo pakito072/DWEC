@@ -13,3 +13,8 @@
 .shadow-lg{
     box-shadow: 0 1rem 3rem rgba(black, 0.175);
 }
+
+.bg-modal {
+    background-color: black !important;
+    border-color: white;
+}

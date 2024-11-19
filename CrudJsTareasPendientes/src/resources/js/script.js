@@ -20,7 +20,7 @@ class TareaManager {
   }
 
   addTask(description) {
-    const id = this.task.lenght ? this.task[this.task.length - 1].id + 1 : 1
+    const id = this.task.length ? this.task[this.task.length - 1].id + 1 : 1
 
     const newTask = new Task(id, description)
     this.task.push(newTask);
@@ -29,7 +29,7 @@ class TareaManager {
     return newTask
   }
 
-  getTask() {
+  readTask() {
     return this.task
 
   }
@@ -70,11 +70,11 @@ class TareaManager {
   }
 
   loadTask() {
-    const cookies = document.cookie.split("; ").find(function(row) {
+    const cookies = document.cookie.split("; ").find(function (row) {
       return row.startsWith("Tareas=")
     })
 
-    if(cookies) {
+    if (cookies) {
       const taskJSON = cookies.split("=")[1]
 
       return JSON.parse(taskJSON)
@@ -82,5 +82,24 @@ class TareaManager {
     }
     return []
   }
+}
+
+function addToTable(task) {
+  const taskBody = document.querySelector("tbody")
+  const row = document.createElement("tr")
+
+  row.innerHTML = `
+    <td>${task.id}</td>
+    <td>${task.description}</td>
+    <td class="d-grid gap-2">
+      <button id="editTask" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+        data-bs-target="#addTaskModal">Modificar</button>
+      <button id="delTask" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+        data-bs-target="#delTaskModal">Eliminar</button>
+    </td>
+  `
+
+  tBody.appendChild(row)
+
 }
 

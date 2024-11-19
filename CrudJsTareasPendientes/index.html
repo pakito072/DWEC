@@ -31,17 +31,8 @@
           <th>Acciones</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Ejemplo de tarea 1</td>
-          <td class="d-grid gap-2">
-            <button id="editTask" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-              data-bs-target="#addTaskModal">Modificar</button>
-            <button id="delTask" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-              data-bs-target="#delTaskModal">Eliminar</button>
-          </td>
-        </tr>
+      <tbody id="taskBody">
+
       </tbody>
     </table>
 
@@ -51,10 +42,11 @@
     <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content bg-modal">
+
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Tarea</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h1 class="modal-title fs-5" id="addTaskModalLabel">Añadir Tarea</h1>
           </div>
+
           <div class="modal-body">
             <form>
               <div class="mb-3">
@@ -64,10 +56,12 @@
               </div>
             </form>
           </div>
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Crear tarea</button>
+            <button type="button" class="btn btn-primary" onclick="addTask()">Crear tarea</button>
           </div>
+
         </div>
       </div>
     </div>
@@ -75,17 +69,20 @@
     <div class="modal fade" id="delTaskModal" tabindex="-1" aria-labelledby="delTaskModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content bg-modal">
+
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Tarea</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h1 class="modal-title fs-5" id="delTaskModalLabel">Eliminar Tarea</h1>
           </div>
+
           <div class="modal-body">
             <p>¿Estas seguro que deseas eliminar esta tarea?</p>
           </div>
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Eliminar tarea</button>
+            <button type="button" class="btn btn-primary" onclick="deleteTask()">Eliminar tarea</button>
           </div>
+
         </div>
       </div>
     </div>

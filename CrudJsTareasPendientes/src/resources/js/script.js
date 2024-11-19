@@ -92,7 +92,7 @@ function addToTable(task) {
     <td>${task.id}</td>
     <td>${task.description}</td>
     <td class="d-grid gap-2">
-      <button id="editTask" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+      <button class="btn btn-warning btn-sm" data-bs-toggle="modal"
         data-bs-target="#addTaskModal">Modificar</button>
       <button id="delTask" class="btn btn-danger btn-sm" data-bs-toggle="modal"
         data-bs-target="#delTaskModal">Eliminar</button>
@@ -100,6 +100,40 @@ function addToTable(task) {
   `
 
   tBody.appendChild(row)
+}
+
+function loadTask() {
+  const tasks = tareaManager.readTask()
+  tasks.forEach(function(task) {
+    addToTable(task)
+  })
+}
+
+function addTask() {
+  const description = document.getElementById("description").value
+  const newTask = tareaManager.addTask(description)
+
+  addToTable(newTask)
+  document.getElementById("description").value = ""
 
 }
 
+function updateTask() {
+  const task = tareaManager.readTasks().find(function(task) {
+    return task.id === id
+  })
+
+  document.getElementById("modalTitle").innerText = "Editar Tarea"
+  document.getElementById("doThingsBtn").innerText = "Actualizar Tarea"
+  document.getElementById("description").value = task.description
+  document.getElementById("doThingsBtn").onClick = function() {
+    tareaManager.updateTask(id, document.getElementById("description").value)
+    location.reload()
+
+  }
+}
+
+function deleteTask(id) {
+  tareaManager.deleteTask(id)
+  location.reload()
+}

@@ -1,0 +1,56 @@
+.background-gr{
+    background: rgb(235,53,50);
+    background: linear-gradient(45deg, rgba(235,53,50,1) 0%, rgba(242,233,40,1) 40%, rgba(40,143,88,1) 60%, rgba(37,104,253,1) 80%, rgba(136,44,153,1) 100%); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bg-dark{
+    --bs-bg-opacity: 0.85;
+}
+
+.shadow-lg{
+    box-shadow: 0 1rem 3rem rgba(black, 0.175);
+}
+
+.bg-modal {
+    background-color: black !important;
+    border-color: white;
+}
+
+.max-w {
+    max-width: 1px;
+}
+
+/*Esto lo ha generado chat gpt para estilizar la scrollBar*/
+
+/* Estilos para el scrollbar en navegadores WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho del scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Color del track */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.8); /* Color del thumb con algo de transparencia */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(136, 136, 136, 1); /* Color del thumb al pasar el mouse */
+}
+
+/* Ocultar flechas del scrollbar */
+::-webkit-scrollbar-button {
+    display: none; /* Ocultar flechas */
+}
+
+/* Estilos para el scrollbar en Firefox */
+* {
+    scrollbar-width: thin; /* Hacer el scrollbar más delgado */
+    scrollbar-color: rgba(136, 136, 136, 0.8) transparent; /* Color del thumb y del track */
+}

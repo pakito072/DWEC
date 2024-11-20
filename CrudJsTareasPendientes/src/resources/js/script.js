@@ -29,7 +29,7 @@ class TareaManager {
   }
 
   saveTasks() {
-    Cookies.set("tasks", JSON.stringify(this.tasks), { expires: 7 })
+    Cookies.set("tasks", JSON.stringify(this.tasks), { expires: 7, sameSite: "None", secure: true })
 
   }
 
@@ -55,7 +55,7 @@ class TareaManager {
     }
   }
 
-  deleteTask(id, description) {
+  deleteTask(id) {
     this.tasks = this.tasks.filter(function (task) {
       return task.id !== id
     })
@@ -117,6 +117,7 @@ function addTask() {
     editingTaskId = null
   }else {
     tareaManager.addTask(description)
+    
   }
 
   document.getElementById("description").value = ""
@@ -126,10 +127,9 @@ function prepareDeleteTask(id) {
   taskToDelete = id
 }
 
-function deleteTask(id) {
+function deleteTask() {
   if(taskToDelete !== null) {
-  tareaManager.deleteTask(id)
+  tareaManager.deleteTask(taskToDelete)
   taskToDelete = null
-  location.reload()
   }
 }

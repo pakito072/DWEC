@@ -18,3 +18,39 @@
     background-color: black !important;
     border-color: white;
 }
+
+.max-w {
+    max-width: 1px;
+}
+
+/*Esto lo ha generado chat gpt para estilizar la scrollBar*/
+
+/* Estilos para el scrollbar en navegadores WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho del scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Color del track */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.8); /* Color del thumb con algo de transparencia */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(136, 136, 136, 1); /* Color del thumb al pasar el mouse */
+}
+
+/* Ocultar flechas del scrollbar */
+::-webkit-scrollbar-button {
+    display: none; /* Ocultar flechas */
+}
+
+/* Estilos para el scrollbar en Firefox */
+* {
+    scrollbar-width: thin; /* Hacer el scrollbar más delgado */
+    scrollbar-color: rgba(136, 136, 136, 0.8) transparent; /* Color del thumb y del track */
+}

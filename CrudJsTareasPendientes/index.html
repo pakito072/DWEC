@@ -21,7 +21,7 @@
 
 <body class="background-gr">
   <div class="container bg-dark rounded-4 text-white mt-5 mb-5 pt-3 pb-4 shadow-lg">
-    <h1 class="fw-bold text-center">Gestion de tareas</h1>
+    <h1 class="fw-bold text-center mb-3">Gestion de tareas</h1>
 
     <table class="table table-bordered table-dark table-striped">
       <thead>
@@ -51,14 +51,14 @@
             <form id="modalForm">
               <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
-                <input type="text" class="form-control" id="description" placeholder="Introduce el tema de tu tarea" required>
+                <input type="text" class="form-control" id="description" placeholder="Introduce el tema de tu tarea">
               </div>
             </form>
           </div>
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="addTask()">Crear/modificar tarea</button>
+            <button type="button" class="btn btn-primary" id="addBtn" data-bs-dismiss="modal" onclick="addTask()" disabled>Crear/modificar tarea</button>
           </div>
 
         </div>

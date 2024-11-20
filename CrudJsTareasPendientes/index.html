@@ -37,7 +37,7 @@
     </table>
 
     <button type="button" class="btn btn-primary btn-lg w-100 mt-3" data-bs-toggle="modal"
-      data-bs-target="#addTaskModal">Crear tarea</button>
+      data-bs-target="#addTaskModal" onclick="prepareAddTask()">Crear tarea</button>
 
     <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -48,7 +48,7 @@
           </div>
 
           <div class="modal-body">
-            <form>
+            <form id="modalForm">
               <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
                 <input type="text" class="form-control" id="description" placeholder="Introduce el tema de tu tarea"
@@ -59,7 +59,7 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button id="doThingsBtn" type="button" class="btn btn-primary" onclick="addTask()">Crear tarea</button>
+            <button type="button" class="btn btn-primary" onclick="addTask()">Crear tarea</button>
           </div>
 
         </div>
@@ -80,7 +80,7 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" onclick="deleteTask()">Eliminar tarea</button>
+            <button type="button" class="btn btn-danger" onclick="deleteTask()">Eliminar tarea</button>
           </div>
 
         </div>

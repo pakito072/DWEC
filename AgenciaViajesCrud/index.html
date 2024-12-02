@@ -15,17 +15,80 @@
 
   <link rel="stylesheet" href="resources/css/styles.css">
 
-  <title>Plantilla</title>
+  <title>Agencia de Viajes</title>
 </head>
 
 <body class="bg-gr">
   <div class="container bg-dark rounded-4 mt-5 mb-5 pt-3 pb-4 shadow-lg">
-    <h1 class="text-center text-white fw-bold roboto mb-3">Plantilla</h1>
-    <div class="overflow-auto rounded-2 cont-h">
-
+    <h1 class="text-center text-white fw-bold roboto mb-3">Agencia de Viajes</h1>
+    <div class="overflow-y-auto overflow-x-hidden rounded-2 cont-h pr-3 text-wrap">
       
+      <div class="form-page active" id="clientes">
+        <h2>Clientes</h2>
+        <form class="row" id="form-cliente">
+          <div class="col-md-6 form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" required>
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" class="form-control" id="apellido" required>
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar Cliente</button>
+        </form>
+        <div id="lista-clientes" class="mt-3"></div>
+      </div>
+  
+      <div class="form-page" id="viajes">
+        <h2>Viajes</h2>
+        <form class="row" id="form-viaje">
+          <div class="col-md-6 form-group">
+            <label for="codigo-viaje">Código</label>
+            <input type="text" class="form-control" id="codigo-viaje" required>
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="destino">Destino</label>
+            <input type="text" class="form-control" id="destino" required>
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="precio">Precio</label>
+            <input type="number" class="form-control" id="precio" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar Viaje</button>
+        </form>
+        <div id="lista-viajes" class="mt-3"></div>
+      </div>
+  
+      <div class="form-page" id="reservas">
+        <h2>Reservas</h2>
+        <form class="row" id="form-reserva">
+          <div class="col-md-6 form-group">
+            <label for="cliente-select">Seleccionar Cliente</label>
+            <select class="form-control" id="cliente-select" required></select>
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="viaje-select">Seleccionar Viaje</label>
+            <select class="form-control" id="viaje-select" required></select>
+          </div>
+          <button type="submit" class="btn btn-primary">Realizar Reserva</button>
+        </form>
+        <div id="lista-reservas" class="mt-3"></div>
+      </div>
 
     </div>
+  </div>
+
+  <div class="container bg-dark rounded-4 mb-5 pt-3 pb-3 btn-group shadow-lg">
+    <button id="prevBtn" class="btn btn-secondary" disabled>Anterior</button>
+    <button id="nextBtn" class="btn btn-secondary">Siguiente</button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js?v=1.0"

@@ -17,6 +17,15 @@
 
 .cont-h {
   height: 35vh;
+  scrollbar-color: #ab2854 rgba(0,0,0,0);
+}
+
+.form-page {
+  display: none;
+}
+
+.form-page.active {
+  display: block;
 }
 
 

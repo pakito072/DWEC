@@ -109,5 +109,18 @@ class reserva {
   }
 }
 
+function data() {
+  const cliente = JSON.parse(localStorage.getItem("cliente")) || []
+  const viaje = JSON.parse(localStorage.getItem("cliente")) || []
+  const reserva = JSON.parse(localStorage.getItem("cliente")) || []
+}
+
+data()
+
+function loadDAta() {
+  const cliente = JSON.parse(localStorage.getItem("cliente")) || []
+  const viaje = JSON.parse(localStorage.getItem("cliente")) || []
+  const reserva = JSON.parse(localStorage.getItem("cliente")) || []
+}
 
 //Este archivo ha sido creado por: Francisco Tejero Angel

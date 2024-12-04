@@ -27,22 +27,22 @@
 
         <div class="col-md-3 form-group">
           <label for="nombre">Nombre</label>
-          <input type="text" class="form-control" id="nombre" required>
+          <input type="text" class="form-control" id="nombre" placeholder="Escriba su nombre..." required>
         </div>
 
         <div class="col-md-3 form-group">
-          <label for="apellido">Apellido</label>
-          <input type="text" class="form-control" id="apellido" required>
+          <label for="apellido">Apellidos</label>
+          <input type="text" class="form-control" id="apellido" placeholder="Escriba sus apellidos ..." required>
         </div>
 
         <div class="col-md-3 form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" required>
+          <input type="email" class="form-control" id="email" placeholder="Escriba su correo..." required>
         </div>
 
         <div class="col-md-3 form-group">
           <label for="telefono">Teléfono</label>
-          <input type="tel" class="form-control" id="telefono" required>
+          <input type="tel" class="form-control" id="telefono" placeholder="Escriba su teléfono..." required>
         </div>
 
       </form>
@@ -54,17 +54,27 @@
 
         <div class="col-md-3 form-group">
           <label for="codigo-viaje">Código</label>
-          <input type="text" class="form-control" id="codigo-viaje" required>
+          <input type="text" class="form-control" id="codigo-viaje" placeholder="Escriba el código del viaje..." required>
         </div>
 
         <div class="col-md-3 form-group">
           <label for="destino">Destino</label>
-          <input type="text" class="form-control" id="destino" required>
+          <input type="text" class="form-control" id="destino" placeholder="Escriba su destino..." required>
         </div>
 
         <div class="col-md-3 form-group">
           <label for="precio">Precio</label>
-          <input type="number" class="form-control" id="precio" required>
+          <input type="number" class="form-control" id="precio" placeholder="Escriba el precio..." required>
+        </div>
+
+        <div class="col-md-3 form-group">
+          <label for="type-select">Tipo de viaje</label>
+          <select class="form-control" id="type-select" required>
+            <option value="default" disabled selected>Seleccione un tipo de viaje</option>
+            <option value="vuelo">Vuelo</option>
+            <option value="hotel">Hotel</option>
+            <option value="paquete">Paquete</option>
+          </select>
         </div>
 
       </form>
@@ -76,12 +86,16 @@
 
         <div class="col-md-3 form-group">
           <label for="cliente-select">Seleccionar Cliente</label>
-          <select class="form-control" id="cliente-select" required></select>
+          <select class="form-control" id="cliente-select" required>
+            <option value="default" disabled selected>Seleccione al cliente</option>
+          </select>
         </div>
 
         <div class="col-md-3 form-group">
           <label for="viaje-select">Seleccionar Viaje</label>
-          <select class="form-control" id="viaje-select" required></select>
+          <select class="form-control" id="viaje-select" required>
+            <option value="default" disabled selected>Seleccione su viaje</option>
+          </select>
         </div>
 
       </form>
@@ -104,9 +118,7 @@
           </tr>
         </thead>
         <tbody id="table-clientes">
-          <tr>
-            <td class="overflow-x-hidden text-nowrap w-25">aaaaaaaccccccccccccccccc ccccccaa</td>
-          </tr>
+
         </tbody>
       </table>
       
@@ -116,6 +128,7 @@
             <th>Código</th>
             <th>Destino</th>
             <th>Precio</th>
+            <th>Tipo</th>
             <th>Acciones</th>
           </tr>
         </thead>

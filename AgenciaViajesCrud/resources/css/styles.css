@@ -20,17 +20,6 @@
   scrollbar-color: #ab2854 rgba(0,0,0,0);
 }
 
-.form-page {
-  display: none;
-}
-
-.form-page.active {
-  display: block;
-}
-
-.selectorPage {
-  width: fit-content;
-}
 
 
 

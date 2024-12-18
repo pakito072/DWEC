@@ -1,6 +1,15 @@
 
 const arrEstudiantes = strArr => {
   
+  let aprovados = strArr.filter(estudiante => estudiante.nota >= 5)
+
+  let mayorEdad = strArr.sort((a, b) => b.edad - a.edad)
+
+  let nombre = strArr.map(estudiante => estudiante.nombre)
+
+  let promedio = strArr.reduce((acc, estudiante) => acc + estudiante.nota, 0) / 4
+
+  return {aprovados, mayorEdad, nombre, promedio}
 }
 
 console.log(arrEstudiantes([

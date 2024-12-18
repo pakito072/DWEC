@@ -9,7 +9,7 @@ const arrayStr = string => {
 
   let caracter4 = string.every(word => word.length >= 4)
 
-  return {normal, mayus, ordenado, empiezaM, caracter4}
+  return {mayus, ordenado, empiezaM, caracter4}
 }
 
 console.log(arrayStr(["Cadiz", "Granada", "Cordoba","Sevilla", "Jerez"]))

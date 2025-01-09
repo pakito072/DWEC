@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Fuente de letra-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="libs/datatables/datatables.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <title>Eventos</title>
+</head>
+
+<body class="bg-gr">
+  <div class="container w-25 rounded-4 mt-5 mb-5 pt-3 pb-4 bg-dark shadow-lg">
+    <h1 class="text-center text-white fw-bold roboto mb-3">Login</h1>
+
+      <!-- Formulario de Login -->
+      <div class="card w- p-4 rounded-3 shadow">
+        <form>
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Ingrese su correo" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="loginPassword" placeholder="Ingrese su contraseña" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-50 mx-auto d-block">Iniciar Sesión</button>
+        </form>
+
+        <p class="text-center mt-3 mb-0">
+          ¿No tienes una cuenta? <span class="text-primary pointer">Regístrate aquí</span>
+        </p>
+      </div>
+
+      <!-- Formulario de Register -->
+      <div class="card w- p-4 rounded-3 shadow unseen">
+        <form>
+          <div class="mb-3">
+            <label for="registerName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="registerName" placeholder="Ingrese su nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="registerEmail" placeholder="Ingrese una cuenta de correo"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="registerPassword" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="registerPassword" placeholder="Crea una contraseña"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
+            <input type="password" class="form-control" id="registerConfirmPassword"
+              placeholder="Confirma tu contraseña" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-25 mx-auto d-block">Registrarse</button>
+        </form>
+
+        <p class="text-center mt-3 mb-0">
+          ¿Ya tienes una cuenta? <span class="text-primary pointer">Inicia serión aquí</span>
+        </p>
+      </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+  <script src="libs/jquery-3.7.1.min.js"></script>
+  <script src="libs/datatables/datatables.min.js"></script>
+</body>
+
+<!--Este archivo ha sido creado por: Francisco Tejero Angel-->
+
+</html>

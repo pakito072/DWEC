@@ -19,10 +19,17 @@
   height: 35vh;
 }
 
+.pointer {
+  cursor: pointer;
+}
 
+.pointer:hover {
+  text-decoration: underline;
+}
 
-
-
+.unseen {
+  display: none;
+}
 
 
 

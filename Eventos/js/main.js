@@ -1,24 +1,28 @@
 $(document).ready(function () {
-
+  // Obtener usuarios del localStorage o inicializar un array vacío
   const users = JSON.parse(localStorage.getItem("users")) || []
 
+  // Función para mostrar un mensaje en un toast
   function showToast(message) {
     $("#toastBody").text(message)
     $("#toast").toast("show")
   }
 
+  // Mostrar formulario de registro y ocultar el de login
   $("#showRegister").click(function (event) {
     event.preventDefault()
     $("#loginForm").addClass("visually-hidden")
     $("#registerForm").removeClass("visually-hidden")
   })
 
+  // Mostrar formulario de login y ocultar el de registro
   $("#showLogin").click(function (event) {
     event.preventDefault()
     $("#registerForm").addClass("visually-hidden")
     $("#loginForm").removeClass("visually-hidden")
   })
 
+  // Manejar el envío del formulario de registro
   $("#registerForm").submit(function (event) {
     event.preventDefault()
 
@@ -26,6 +30,7 @@ $(document).ready(function () {
     const password = $("#registerPassword").val()
     const confirmPass = $("#registerConfirmPassword").val()
 
+    // Validar email y contraseñas
     if (!email.includes("@")) {
       showToast("El email no es válido")
       return
@@ -36,6 +41,7 @@ $(document).ready(function () {
       return
     }
 
+    // Crear objeto de usuario y guardarlo en localStorage
     const userData = {
       name: $("#registerName").val(),
       email: email,
@@ -49,12 +55,14 @@ $(document).ready(function () {
     $("#showLogin").trigger("click")
   })
 
+  // Manejar el envío del formulario de login
   $("#loginForm").submit(function (event) {
     event.preventDefault()
 
     const email = $("#loginEmail").val()
     const password = $("#loginPassword").val()
 
+    // Buscar usuario en el array de usuarios
     const user = users.find(user => user.email === email && user.password === password)
 
     if (user) {
@@ -65,6 +73,7 @@ $(document).ready(function () {
     }
   })
 
+  // Configurar DataTable en la página de administración
   if (window.location.pathname.includes("admin.html")) {
     const table = $("#eventsTable").DataTable({
       language: {
@@ -90,6 +99,7 @@ $(document).ready(function () {
       }
     })
 
+    // Añadir usuarios a la tabla
     users.forEach(user => {
       table.row.add([
         user.name,

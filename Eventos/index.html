@@ -18,56 +18,68 @@
 </head>
 
 <body class="bg-gr roboto">
-  <div class="my-5 mx-auto pt-4 w-25 bg-dark shadow-lg rounded-2">
+  <main class="my-5 mx-auto pt-4 w-25 bg-dark shadow-lg rounded-2">
 
-      <!-- Formulario de Login -->
-      <div id="loginForm" class="mx-2 p-4 rounded-2">
-        <h1 class="text-center text-white">Login</h1>
-        <form>
-          <div class="mb-3">
-            <label for="loginEmail" class="form-label text-white">Email</label>
-            <input type="email" class="form-control" id="loginEmail" placeholder="Ingrese su correo" required>
-          </div>
-          <div class="mb-3">
-            <label for="loginPassword" class="form-label text-white">Contraseña</label>
-            <input type="password" class="form-control" id="loginPassword" placeholder="Ingrese su contraseña" required>
-          </div>
-          <button type="submit" class="btn btn-primary w-50 mx-auto d-block">Iniciar Sesión</button>
-        </form>
+    <!-- Formulario de Login -->
+    <div id="loginForm" class="mx-2 p-4 rounded-2">
+      <h1 class="text-center text-white">Login</h1>
+      <form>
+        <div class="mb-3">
+          <label for="loginEmail" class="form-label text-white">Email</label>
+          <input type="email" class="form-control" id="loginEmail" placeholder="Ingrese su correo">
+        </div>
+        <div class="mb-3">
+          <label for="loginPassword" class="form-label text-white">Contraseña</label>
+          <input type="password" class="form-control" id="loginPassword" placeholder="Ingrese su contraseña">
+        </div>
+        <button type="submit" class="btn btn-primary w-50 mx-auto d-block">Iniciar Sesión</button>
+      </form>
 
-        <p class="text-center mt-3 text-white">
-          ¿No tienes una cuenta? <span id="showRegister" class="text-primary pointer">Regístrate aquí</span>
-        </p>
-      </div>
+      <p class="text-center mt-3 text-white">
+        ¿No tienes una cuenta? <span id="showRegister" class="text-primary pointer">Regístrate aquí</span>
+      </p>
+    </div>
 
-      <!-- Formulario de Register -->
-      <div id="registerForm" class="mx-2 p-4 rounded-2 visually-hidden">
-        <h1 class="text-center text-white">Register</h1>
-        <form>
-          <div class="mb-3">
-            <label for="registerName" class="form-label text-white">Nombre</label>
-            <input type="text" class="form-control" id="registerName" placeholder="Ingrese su nombre" required>
-          </div>
-          <div class="mb-3">
-            <label for="registerEmail" class="form-label text-white">Email</label>
-            <input type="email" class="form-control" id="registerEmail" placeholder="Ingrese una cuenta de correo" required>
-          </div>
-          <div class="mb-3">
-            <label for="registerPassword" class="form-label text-white">Contraseña</label>
-            <input type="password" class="form-control" id="registerPassword" placeholder="Crea una contraseña" required>
-          </div>
-          <div class="mb-3">
-            <label for="registerConfirmPassword" class="form-label text-white">Confirmar Contraseña</label>
-            <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Confirma tu contraseña" required>
-          </div>
-          <button type="submit" class="btn btn-primary w-50 mx-auto d-block">Registrarse</button>
-        </form>
-  
-        <p class="text-center mt-3 text-white">
-          ¿Ya tienes una cuenta? <span id="showLogin" class="text-primary pointer">Inicia sesión aquí</span>
-        </p>
+    <!-- Formulario de Register -->
+    <div id="registerForm" class="mx-2 p-4 rounded-2 visually-hidden">
+      <h1 class="text-center text-white">Register</h1>
+      <form>
+        <div class="mb-3">
+          <label for="registerName" class="form-label text-white">Nombre</label>
+          <input type="text" class="form-control" id="registerName" placeholder="Ingrese su nombre">
+        </div>
+        <div class="mb-3">
+          <label for="registerEmail" class="form-label text-white">Email</label>
+          <input type="email" class="form-control" id="registerEmail" placeholder="Ingrese una cuenta de correo"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="registerPassword" class="form-label text-white">Contraseña</label>
+          <input type="password" class="form-control" id="registerPassword" placeholder="Crea una contraseña">
+        </div>
+        <div class="mb-3">
+          <label for="registerConfirmPassword" class="form-label text-white">Confirmar Contraseña</label>
+          <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Confirma tu contraseña"
+            required>
+        </div>
+        <button type="submit" class="btn btn-primary w-50 mx-auto d-block">Registrarse</button>
+      </form>
+
+      <p class="text-center mt-3 text-white">
+        ¿Ya tienes una cuenta? <span id="showLogin" class="text-primary pointer">Inicia sesión aquí</span>
+      </p>
+    </div>
+    </div>
+  </main>
+
+
+  <div class="toast align-items-center text-bg-primary border-0" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body" id="toastBody">
+        <span aria-hidden="true">&times;</span>
       </div>
-      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
   </div>
 
 
